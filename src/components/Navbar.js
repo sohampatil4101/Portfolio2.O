@@ -1,6 +1,7 @@
 import React from 'react'
 import Styled, { styled } from "styled-components"
 import {Link as LinkR} from "react-router-dom"
+import {Bio} from "../React 3D Portfolio/data/constants"
 
 const NavbarContainer = Styled.div`
   background-color: ${({theme}) => theme.bg};
@@ -15,6 +16,7 @@ const NavbarContainer = Styled.div`
   color: white
 `
 const NavLogo = Styled(LinkR)`
+  width: 80%;
   padding:0px 6px;
   text-decoration: none;
 `
@@ -39,8 +41,37 @@ const NavLink = styled.a`
   }
 `
 
-const ButtonContainer = styled.div``
-const GithubButton = styled.div``
+const ButtonContainer = styled.div`
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0px 6px;
+  @media screen and (max-width: 768px){
+    display: none;
+
+  }
+`
+const GithubButton = styled.div`
+  border: 1px solid ${({theme}) => theme.primary};
+  color: ${({theme}) => theme.primary};
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.6s ease-in-out;
+  text-decoration: none;
+  &:hover{
+    background: ${({theme}) => theme.primary};
+    color: ${({theme}) => theme.text_primary};
+  }
+
+`
 
 
 
@@ -59,8 +90,8 @@ export const Navbar = () => {
         </NavItems>
 
         <ButtonContainer>
-          <GithubButton>
-
+          <GithubButton href={Bio.github} target="_blank">
+            Github Profile
           </GithubButton>
         </ButtonContainer>
 
