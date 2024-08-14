@@ -2,8 +2,10 @@ import React from 'react'
 import Styled, { styled } from "styled-components"
 import {Link as LinkR} from "react-router-dom"
 import {Bio} from "../React 3D Portfolio/data/constants"
+import {MenuRounded} from '@mui/icons-material'
+import { useState } from 'react'
 
-const NavbarContainer = Styled.div`
+const Nav = Styled.div`
   background-color: ${({theme}) => theme.bg};
   height: 80px;
   display: flex;
@@ -15,7 +17,21 @@ const NavbarContainer = Styled.div`
   z-index:10;
   color: white
 `
+const NavbarContainer = Styled.div`
+  width: 100%;
+  background-color: ${({theme}) => theme.bg};
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  max-width: 1200px;
+  padding: 0px 24px;
+  justify-content: space-between
+`
 const NavLogo = Styled(LinkR)`
+  font-weight:500;
+  font-size: 18px;
   width: 80%;
   padding:0px 6px;
   text-decoration: none;
@@ -69,32 +85,66 @@ const GithubButton = styled.div`
   &:hover{
     background: ${({theme}) => theme.primary};
     color: ${({theme}) => theme.text_primary};
-  }
-
+    }
+    
+    `
+    
+    const MobileIcon = styled.div`
+    height:100%;
+    display: flex;
+    align-item: center;
+    color: ${({theme}) => theme.text_primary};
+    display:none;
+    @media screen and (max-width: 768px){
+      display: block;
+    }
+    
 `
 
-
-
+  const MobileMenu = Styled.ul`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 0px 6px;
+    list-style: none;
+  `
 
 export const Navbar = () => {
-  return ( 
-    <NavbarContainer>
-        <NavLogo to="/">soham</NavLogo>
 
-        <NavItems>
-          <NavLink href="#about">about</NavLink>
-          <NavLink href="#skills">skills</NavLink>
-          <NavLink href="#expirence">expirence</NavLink>
-          <NavLink href="#projects">projects</NavLink>
-          <NavLink href="#education">education</NavLink>
-        </NavItems>
+  const [isopen, setIsOpen] = useState(false)
 
-        <ButtonContainer>
-          <GithubButton href={Bio.github} target="_blank">
-            Github Profile
-          </GithubButton>
-        </ButtonContainer>
+  return (
+    <Nav>
+      <NavbarContainer>
+          <NavLogo to="/">soham</NavLogo>
+          <MobileIcon onClick={() => setIsOpen(!isopen)}>
+            <MenuRounded style={{color: 'inherit'}}/>
+          </MobileIcon>
 
-    </NavbarContainer>
+          <NavItems>
+            <NavLink href="#about">about</NavLink>
+            <NavLink href="#skills">skills</NavLink>
+            <NavLink href="#expirence">expirence</NavLink>
+            <NavLink href="#projects">projects</NavLink>
+            <NavLink href="#education">education</NavLink>
+          </NavItems>
+
+          {
+            isopen && <MobileMenu>
+              <NavLink href="#about">about</NavLink>
+
+            </MobileMenu>
+          }
+
+          <ButtonContainer>
+            <GithubButton href={Bio.github} target="_blank">
+              Github Profile
+            </GithubButton>
+          </ButtonContainer>
+
+      </NavbarContainer>
+    </Nav>
   )
 }
