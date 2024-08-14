@@ -38,6 +38,7 @@ const HeroInnerContainer = styled.div`
 const HeroLeftContainer = styled.div`
     width: 100%;
     order: 1;
+    gap:6px;
    @media (max-width: 960px){
         order: 2;
         margin-bottom: 30px;
@@ -99,15 +100,77 @@ const Textloop = styled.div`
         line-height: 48px;
         margin-bottom: 16px;
         }
-        `
+`
 
 
 const Span = styled.div`
     cursor: pointer;
     color: ${({theme}) => theme.text_primary};
-
-
+    `
+    
+    
+const SubTitle = styled.div`
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 42px;
+    color: ${({theme}) => theme.text_primary + 95};
+    @media (max-width: 960px){
+    text-align: center;
+    }
+    
+    @media (max-width: 640px){
+    font-size: 16px;
+    line-height: 32px;
+    }
 `
+
+
+const ResumeButton = styled.a`
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+
+  width: 95%;
+  max-width: 300px;
+  text-align: center;
+  padding: 16px 0;
+
+  background: hsla(271, 100%, 50%, 1);
+  background: linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 20px;
+
+     &:hover {
+        transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+    box-shadow:  20px 20px 60px #1F2634,
+    filter: brightness(1);
+    }    
+    
+    
+    @media (max-width: 640px) {
+        padding: 12px 0;
+        font-size: 18px;
+    } 
+    color: white;
+`;
 
 export default function Hero() {
     return (
@@ -121,9 +184,21 @@ export default function Hero() {
                     <Textloop>
                         I am a 
                         <Span>
-                            <Typewriter/>
+                            <Typewriter
+                            options={{
+                                strings: Bio.roles,
+                                autoStart: true,
+                                loop: true
+                            }}
+                            />
                         </Span>
                     </Textloop>
+                    <SubTitle>
+                        {Bio.description}
+                    </SubTitle>
+                    <ResumeButton>
+                        check reume
+                    </ResumeButton>
                 </HeroLeftContainer>
                 <HeroRightContainer>
                     Right
