@@ -4,6 +4,7 @@ import {darkTheme} from "./React 3D Portfolio/utils/Themes"
 import { Navbar } from './components/Navbar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Hero from './components/sections/Hero';
+import Skills from './components/sections/Skills';
 
 const Body = styled.div`
   background: ${({theme}) => theme.bg};
@@ -23,6 +24,7 @@ function App() {
         <Navbar/>
         <Body>
           <Hero/>
+          <Skills/>
         </Body>
       </Router>
     </ThemeProvider>
