@@ -11,7 +11,7 @@ import {
   headContentAnimation,
   headTextAnimation,
 } from "../../React 3D Portfolio/utils/motion";
-import StyledStarsCanvas from "../canvas/stars";
+// import { StyledStarsCanvas } from "../canvas/stars";
 
 
 const HeroContainer = styled.div`
@@ -220,7 +220,7 @@ export default function Hero() {
     <div id="About">
       <HeroContainer>
         <HeroBg>
-          <StyledStarsCanvas />
+          {/* <StyledStarsCanvas /> */}
           <HeroBgAnimation />
         </HeroBg>
 
@@ -256,7 +256,7 @@ export default function Hero() {
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>
                 <Tilt>
-                  <Img src={HeroImg} alt="Rishav Chanda" />
+                  <Img src={HeroImg} alt="Soham Patil" />
                 </Tilt>
               </motion.div>
             </HeroRightContainer>
