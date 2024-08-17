@@ -6,7 +6,7 @@ import Hero from "./components/sections/Hero";
 import Skills from "./components/sections/Skills";
 import Experience from "./components/sections/Experience";
 import Education from "./components/sections/Education";
-import StartCanvas from "./components/canvas/stars";
+// import StartCanvas from "./components/canvas/stars";
 import Projects from "./components/sections/Project";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
@@ -40,7 +40,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Body>
-          <StartCanvas />
+          {/* <StartCanvas /> */}
           <div>
             <Hero />
             <Wrapper>
